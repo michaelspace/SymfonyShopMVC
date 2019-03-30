@@ -21,8 +21,10 @@ class ProductController extends AbstractController
      */
     public function index()
     {
+        $user = $this->getUser();
         return $this->render('product/index.html.twig', [
             'controller_name' => 'ProductController',
+            'user' => $user
         ]);
 
         

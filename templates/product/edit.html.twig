@@ -1,0 +1,30 @@
+{#{% extends 'base.html.twig' %}#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>{% block title %}<h2>Edytuj produkt</h2>{% endblock %}</title>
+    </head>
+    <body>
+    {% block body %}
+        <div id="sidebar">
+            {% block sidebar %}
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../product">Lista produktów</a></li>
+                    <li><a href="../product/add">Dodaj</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+        <div class="container">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_start(productForm) }}
+                {{ form_widget(productForm) }}
+                <button type="submit" class="btn btn-primary" formnovalidate style="background-color: green">Edytuj produkt</button>
+                {{ form_end(productForm) }}
+            </div>
+        </div>
+    {% endblock %}
+    </body>
+</html>

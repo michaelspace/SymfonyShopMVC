@@ -38,6 +38,12 @@
                                     <div class="small-3 columns">
                                         <p>Nazwa: {{category.name}}</p>
                                     </div>
+                                    <div class="small-3 columns">
+                                        <a href="{{ path('edit_category_form', { 'id': category.id }) }}">Edytuj</a>
+                                    </div>
+                                    <div class="small-3 columns">
+                                        <a href="{{ path('delete_category_process', { 'id': category.id }) }}">Usuń</a>
+                                    </div>
                                 </li>
                             </div>
                         {% endfor %}  

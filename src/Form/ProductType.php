@@ -36,8 +36,8 @@ class ProductType extends AbstractType
                     },
                     "choice_label" => "word",
                     "multiple"=>true,
-                    "expanded"=>false,
-                    "by_reference" => false,
+                    "expanded"=>true,
+                    "by_reference" => false
                 ]);
     }
     public function configureOptions(OptionsResolver $resolver)

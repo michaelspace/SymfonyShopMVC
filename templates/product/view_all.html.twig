@@ -47,7 +47,12 @@
                                                         <div class="small-3 columns">
                                                             <p>Cena: {{product.price|number_format(2,'.',',')}} zł</p>
                                                         </div>
-                                                    
+                                                        <div class="small-3 columns">
+                                                            <a href="{{ path('edit_product_form', { 'id': product.id }) }}">Edytuj</a>
+                                                        </div>
+                                                        <div class="small-3 columns">
+                                                            <a href="{{ path('delete_product_process', { 'id': product.id }) }}">Usuń</a>
+                                                        </div>
                                                 </li>
                                                 </div>
                                             {% endfor %}

@@ -38,9 +38,15 @@
                                     <div class="small-3 columns">
                                         <p>Słowo klucz: {{keyword.word}}</p>
                                     </div>
+                                    <div class="small-3 columns">
+                                        <a href="{{ path('edit_keyword_form', { 'id': keyword.id }) }}">Edytuj</a>
+                                    </div>
+                                    <div class="small-3 columns">
+                                        <a href="{{ path('delete_keyword_process', { 'id': keyword.id }) }}">Usuń</a>
+                                    </div>
                                     {% if keyword.products is not null and keyword.products is not empty %}
                                         <div class="small-3 columns handle">
-                                            <p>Pasujące produkty:</p>
+                                            <strong>Pasujące produkty:</strong>
                                         </div>
                                         {% for product in keyword.products %}
                                             <div class="small-3 columns handle">

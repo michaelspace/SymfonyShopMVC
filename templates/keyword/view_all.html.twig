@@ -14,11 +14,11 @@
             {% block sidebar %}
                 <ul>
                     <li><a href="/">Home</a></li>
-                    <li><a href="../product">Lista produktów</a></li>
+                    <li><a href="../../product">Lista produktów</a></li>
                     <li><a href="../product/add">Dodaj produkt</a></li>
-                    <li><a href="../category">Lista kategorii</a></li>
+                    <li><a href="../../category">Lista kategorii</a></li>
                     <li><a href="../category/add">Dodaj kategorię</a></li>
-                    <li><a href="../keyword">Lista słów kluczowych</a></li>
+                    <li><a href="../../keyword">Lista słów kluczowych</a></li>
                     <li><a href="../keyword/add">Dodaj słowa kluczowe do bazy</a></li>
                 </ul>
             {% endblock %}
@@ -46,13 +46,12 @@
                                     </div>
                                     {% if keyword.products is not null and keyword.products is not empty %}
                                         <div class="small-3 columns handle">
-                                            <strong>Pasujące produkty:</strong>
-                                        </div>
+                                            <p><strong>Pasujące produkty: </strong>
                                         {% for product in keyword.products %}
-                                            <div class="small-3 columns handle">
-                                                <p>ID: {{product.id}} || Nazwa: {{product.name}}</p>
-                                            </div>
+                                            {{product.name}},
                                         {% endfor %} 
+                                            </p>
+                                        </div>
                                     {% endif %}
                                 </li>
                             </div>

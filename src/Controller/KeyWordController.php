@@ -128,7 +128,7 @@ class KeyWordController extends AbstractController
             $em->persist($keyword);
             $em->flush();
 
-            $this->addFlash("info", "Słowo \"" . $category->getWord() . "\" edytowane pomyślnie");
+            $this->addFlash("info", "Słowo \"" . $keyword->getWord() . "\" edytowane pomyślnie");
             return $this->redirectToRoute("all_keywords");
         }
         return $this->render("keyword/edit.html.twig",
@@ -140,7 +140,7 @@ class KeyWordController extends AbstractController
      * @param KeyWord $keyword
      * @return Response
      */
-    public function deleteCategory(KeyWord $keyword)
+    public function deleteKeyWord(KeyWord $keyword)
     {
         $em = $this->getDoctrine()->getManager();
 

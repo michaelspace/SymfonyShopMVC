@@ -53,6 +53,17 @@ class ProductController extends AbstractController
      */
     public function add()
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        # $token = $this->get("security.token_storage")->getToken();
+        # $auth_checker = $this->get("security.authorization_checker");
+        # $auth_checker->isGranted('ROLE_ADMIN');
+        #if (!$token->isAuthenticatedFully())
+        #{
+        #    $this->get('session')->getFlashBag()->add("error", "Nie jesteś zalogowany(a)!");
+        #
+        #    return $this->redirectToRoute("all_products");
+        #}
+
         $form = $this->createForm(ProductType::class);
 
         return $this->render("product/add.html.twig", 
@@ -69,6 +80,8 @@ class ProductController extends AbstractController
      */
     public function addProcess(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $product = new Product();
         $form = $this->createForm(
             ProductType::class,
@@ -102,6 +115,8 @@ class ProductController extends AbstractController
      */
     public function edit(Product $product)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(
             ProductType::class,
             $product
@@ -119,6 +134,8 @@ class ProductController extends AbstractController
      */
     public function editProcess(Product $product, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(
             ProductType::class,
             $product
@@ -148,6 +165,8 @@ class ProductController extends AbstractController
      */
     public function deleteProduct(Product $product)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        
         $em = $this->getDoctrine()->getManager();
 
         $em->remove($product);

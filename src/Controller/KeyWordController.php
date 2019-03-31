@@ -47,6 +47,8 @@ class KeyWordController extends AbstractController
      */
     public function add()
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        
         $form = $this->createForm(KeyWordType::class);
 
         return $this->render("keyword/add.html.twig", 
@@ -63,6 +65,8 @@ class KeyWordController extends AbstractController
      */
     public function addProcess(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $keyword = new KeyWord();
         $form = $this->createForm(
             KeyWordType::class,
@@ -96,6 +100,8 @@ class KeyWordController extends AbstractController
      */
     public function edit(KeyWord $keyword)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(
             KeyWordType::class,
             $keyword
@@ -113,6 +119,8 @@ class KeyWordController extends AbstractController
      */
     public function editProcess(KeyWord $keyword, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(
             KeyWordType::class,
             $keyword
@@ -142,6 +150,8 @@ class KeyWordController extends AbstractController
      */
     public function deleteKeyWord(KeyWord $keyword)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $em = $this->getDoctrine()->getManager();
 
         $em->remove($keyword);

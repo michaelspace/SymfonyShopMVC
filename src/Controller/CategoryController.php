@@ -47,6 +47,8 @@ class CategoryController extends AbstractController
      */
     public function add()
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        
         $form = $this->createForm(CategoryType::class);
 
         return $this->render("category/add.html.twig", 
@@ -63,6 +65,8 @@ class CategoryController extends AbstractController
      */
     public function addProcess(Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $category = new Category();
         $form = $this->createForm(
             CategoryType::class,
@@ -96,6 +100,8 @@ class CategoryController extends AbstractController
      */
     public function edit(Category $category)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(
             CategoryType::class,
             $category
@@ -113,6 +119,8 @@ class CategoryController extends AbstractController
      */
     public function editProcess(Category $category, Request $request)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $form = $this->createForm(
             CategoryType::class,
             $category
@@ -142,6 +150,8 @@ class CategoryController extends AbstractController
      */
     public function deleteCategory(Category $category)
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
         $em = $this->getDoctrine()->getManager();
 
         $em->remove($category);

@@ -15,7 +15,9 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="../product">Lista produktów</a></li>
-                    <li><a href="../product/add">Dodaj</a></li>
+                    <li><a href="../product/add">Dodaj produkt</a></li>
+                    <li><a href="../category">Lista kategorii</a></li>
+                    <li><a href="../category/add">Dodaj kategorię</a></li>
                 </ul>
             {% endblock %}
         </div>
@@ -24,30 +26,32 @@
                     <div class="large-8 columns large-centered">
                         <form id="itemsForm">
                                 {% for category in categories %}
-                                    <h3>Nazwa kategorii: {{ category.name }}</h3>
-                                    <ul>
-                                        {% for product in products %}
-                                        <div class="row">
-                                            <li id="item_{{ product.id }}">
-                                                
-                                                    <div class="small-3 columns handle">
-                                                    <p>ID: {{product.id}}</p>
-                                                    </div>
-                                                    <div class="small-3 columns">
-                                                        <p>Nazwa: {{product.name}}</p>
-                                                    </div>
-                                                    <div class="small-3 columns">
-                                                        <p>Opis: {{product.description}}</p>
-                                                    </div>
-                                                    <div class="small-3 columns">
-                                                        <p>Cena: {{product.price|number_format(2,'.',',')}} zł</p>
-                                                    </div>
-                                                
-                                            </li>
-                                            </div>
-                                        {% endfor %}
-                                    </ul>
-                                {% endfor %}   
+                                    {% if category.products is not null and category.products is not empty %}
+                                        <h3>Nazwa kategorii: {{ category.name }}</h3>
+                                        <ul>
+                                            {% for product in category.products %}
+                                            <div class="row">
+                                                <li id="item_{{ product.id }}">
+                                                    
+                                                        <div class="small-3 columns handle">
+                                                        <p>ID: {{product.id}}</p>
+                                                        </div>
+                                                        <div class="small-3 columns">
+                                                            <p>Nazwa: {{product.name}}</p>
+                                                        </div>
+                                                        <div class="small-3 columns">
+                                                            <p>Opis: {{product.description}}</p>
+                                                        </div>
+                                                        <div class="small-3 columns">
+                                                            <p>Cena: {{product.price|number_format(2,'.',',')}} zł</p>
+                                                        </div>
+                                                    
+                                                </li>
+                                                </div>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                {% endfor %}
                         </form>
                     </div>
         </div>

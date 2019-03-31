@@ -1,0 +1,51 @@
+{# templates/product/view_all.html.twig #}
+
+{#{% extends 'base.html.twig' %}#}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>{% block title %}Kategorie{% endblock %}</title>
+    </head>
+    <body>
+    {% block body %}
+        <div id="sidebar">
+            {% block sidebar %}
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="../product">Lista produktów</a></li>
+                    <li><a href="../product/add">Dodaj produkt</a></li>
+                    <li><a href="../category">Lista kategorii</a></li>
+                    <li><a href="../category/add">Dodaj kategorię</a></li>
+                </ul>
+            {% endblock %}
+        </div>
+        
+        <div id="content">
+            <div class="large-8 columns large-centered">
+                <form id="itemsForm">
+                    <h3>Lista kategorii:</h3>
+                    <ul>
+                        {% for category in categories %}
+                            <div class="row">
+                                <li id="item_{{ category.id }}">
+                                    <div class="small-3 columns handle">
+                                        <p>ID: {{category.id}}</p>
+                                    </div>
+                                    <div class="small-3 columns">
+                                        <p>Nazwa: {{category.name}}</p>
+                                    </div>
+                                </li>
+                            </div>
+                        {% endfor %}  
+                    </ul>
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+    </body>
+</html>
+
+
+

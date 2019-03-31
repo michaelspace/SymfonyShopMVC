@@ -1,11 +1,13 @@
-{# templates/base.html.twig #}
+{#{% extends 'base.html.twig' %}#}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Sklep{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <title>{% block title %}<h2>Edytuj słowo</h2>{% endblock %}</title>
     </head>
     <body>
+    {% block body %}
         <div id="sidebar">
             {% block sidebar %}
                 <ul>
@@ -19,9 +21,14 @@
                 </ul>
             {% endblock %}
         </div>
-
-        <div id="content">
-            {% block body %}{% endblock %}
+        <div class="container">
+            <div class="col-md-4 col-md-offset-4">
+                {{ form_start(keywordForm) }}
+                {{ form_widget(keywordForm) }}
+                <button type="submit" class="btn btn-primary" formnovalidate style="background-color: green">Edytuj słowo kluczowe</button>
+                {{ form_end(keywordForm) }}
+            </div>
         </div>
+    {% endblock %}
     </body>
 </html>

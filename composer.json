@@ -19,6 +19,7 @@
         "symfony/form": "4.3.*",
         "symfony/framework-bundle": "*",
         "symfony/monolog-bundle": "^3.1",
+        "symfony/options-resolver": "4.3.*",
         "symfony/orm-pack": "dev-master",
         "symfony/process": "*",
         "symfony/security-bundle": "*",

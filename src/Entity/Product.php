@@ -45,7 +45,7 @@ class Product
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\KeyWord", mappedBy="products")
      */
-    private $keyWords;
+    protected $keyWords;
 
     /**
      * @ORM\Column(type="string", length=190)
